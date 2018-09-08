@@ -74,6 +74,7 @@ class Board extends AbstractApi
      * @param array $params attributes
      *
      * @return array board info
+     * @throws \Trello\Exception\MissingArgumentException
      */
     public function create(array $params = array())
     {
@@ -275,6 +276,15 @@ class Board extends AbstractApi
     public function checklists()
     {
         return new Board\Checklists($this->client);
+    }
+
+    /**
+     * Custom Fields API
+     * @return Board\CustomFields
+     */
+    public function customFields()
+    {
+        return new Board\CustomFields($this->client);
     }
 
     /**
